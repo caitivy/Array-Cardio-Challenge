@@ -77,22 +77,34 @@
     });
     console.table(oldest);
 
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
     //Working inside the console in the website
 
-    const category = document.querySelector('.mw-category');   //add the html class
+    // const category = document.querySelector('.mw-category');   //add the html class
 
-    const links = Array.from(category.querySelectorAll('a')); // As I am looking for links I am calling querySelector on a tags.  Note: querySelector can be called on any existing DOM element.
+    // const links = Array.from(category.querySelectorAll('a')); // As I am looking for links I am calling querySelector on a tags.  Note: querySelector can be called on any existing DOM element.
 
-    //Converting to a list of names and then filtering by only name.
+    // //Converting to a list of names and then filtering by only name.
 
-    const de = links.map(link => link.textContent); // Error returnned: querySelector returns to you a Node list. In order to use map you need to change it into an array.
+    // const de = links
 
+    // .map(link => link.textContent) // Error returnned: querySelector returns to you a Node list. In order to use map you need to change it into an array.
+    // .filter(streetName => streetName.includes('de'));  //Only return if street name includes de.
 
-    // 7. sort Exercise
+    // // 7. sort Exercise
     // Sort the people alphabetically by last name
+
+
+    const alpha = people.sort(function(lastOne, nextOne) { //creating a function that sorts each person.
+      // const parts = lastOne.split(', '); //splitting them up where there is a comma followed by space.
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+
+      return aLast > bLast ? 1 : -1;
+    });
+    console.log(alpha);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
