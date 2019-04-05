@@ -110,6 +110,18 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const transportation = data.reduce(function (obj, item) { //With .reduce you loop over each item to check if it has a 0 value and in order to do that you need to use a if statement.
+
+  if(!obj[item]) {
+        obj[item] = 0;
+      }
+
+      obj[item]++;
+      return obj;
+
+    }, {});
+    console.log(transportation);
+
   </script>
 </body>
 </html>
